@@ -46,3 +46,20 @@ CREATE TABLE step (
 	PRIMARY KEY (step_id),
 	FOREIGN KEY (project_id) REFERENCES project (project_id) ON DELETE CASCADE
 );
+
+-- Add some data
+
+INSERT INTO project (project_name, estimated_hours, actual_hours, difficulty, notes)
+VALUES ('Compose a piano piece', 11.00, 15.00, 4, 'You should probably know how to read music');
+INSERT INTO material (project_id, material_name, num_required, cost) VALUES (1, 'pencil', 3, 0.99);
+INSERT INTO material (project_id, material_name, num_required, cost) VALUES (1, 'staff paper', 10, 2.99);
+INSERT INTO material (project_id, material_name, num_required, cost) VALUES (1, 'piano', 1, 2000.99);
+INSERT INTO step (project_id, step_text, step_order) VALUES (3, 'Sit down at the piano', 1);
+INSERT INTO step (project_id, step_text, step_order) VALUES (3, 'Play whatever comes to mind', 2);
+INSERT INTO step (project_id, step_text, step_order) VALUES (3, 'Write it down', 3);
+INSERT INTO category (category_name) VALUES ('Creative');
+INSERT INTO category (category_name) VALUES ('Arts');
+INSERT INTO category (category_name) VALUES ('Music');
+INSERT INTO project_category (project_id, category_id) VALUES (1, 1);
+INSERT INTO project_category (project_id, category_id) VALUES (1, 2);
+INSERT INTO project_category (project_id, category_id) VALUES (1, 3);
